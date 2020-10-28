@@ -102,13 +102,13 @@ menu .cta button h6, h5{
 }
 
 .wrap .jumbotron .jumbo-content{
-     position: relative;
+    position: relative;
     align-items: center;
     top: 25vh;
 }
 
 .wrap .jumbotron .jumbo-content h1{
-   font-size: 3.5em;
+    font-size: 3.5em;
     width: 90%;
     line-height: 1em;
     text-transform: capitalize;
