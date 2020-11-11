@@ -5,11 +5,12 @@ html, body{
     font-family: Poppins;
     font-weight: 400;
     font-size: 1em;
+
 }
 
 :root{
-    --main-bg: #00AEFF;
-    --alt-bg: #084482;
+    --main-bg: #084482;
+    --alt-bg: #3bc1ff;
 }
 
 .wrap{
@@ -35,14 +36,63 @@ html, body{
 }
 
 .wrap header nav img{
-    width: 50px;
+    width: 100px;
 }
 
 .wrap header{
     width: 100vw;
     grid-column: 1 / -1;
-    padding: 5px 0;
+    padding: 18px 0;
 }
+
+ 
+.active{
+    z-index: 1000;
+}
+
+.slideInLeft{
+    animation: animateInLeft;
+    z-index: 1000;
+}
+
+.slideInRight{
+    animation: animateInRight;
+    z-index: 1000;
+}
+
+.slideOutLeft{
+    transform: translateX(-100%);
+}
+
+
+.slideOutRight{
+    transform: translateX(100%)
+}
+
+
+
+
+@keyframes animateInLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes animateInRight{
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+}
+
 
 .wrap header nav #menu{
     width: 20px;
@@ -50,7 +100,7 @@ html, body{
 
 menu{
     position: absolute;
-    z-index: 100;
+    z-index: 4000;
     width: 100vw;
     height: 100vh;
     background-color: var(--alt-bg);
@@ -61,6 +111,7 @@ menu{
     letter-spacing: 0.2em;
     font-size: 0.8em;
     display: none;
+
 }
 
 menu img{
@@ -99,32 +150,138 @@ menu .cta button h6, h5{
     background-position: top;
     grid-column: 1 / -1;
     height: 90vh;
+    animation: 10s ease-in slideshow;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes slideshow{
+    0%{
+    background: url('images/jumbo.png');
+    background-size: cover;
+    background-position: top;
+    grid-column: 1 / -1;
+    height: 90vh;
+    }
+
+    25%{
+    background: url('images/jumbo1.jpeg');
+    background-size: cover;
+    background-position: top;
+    grid-column: 1 / -1;
+    height: 90vh;
+    }
+
+    45%{
+    background: url('images/jumbo2.jpeg');
+    background-size: cover;
+    background-position: top;
+    grid-column: 1 / -1;
+    height: 90vh;
+    }
+
+    65%{
+    background: url('images/jumbo3.jpeg');
+    background-size: cover;
+    background-position: top;
+    grid-column: 1 / -1;
+    height: 90vh;
+    }
+
+    100%{
+    background: url('images/jumbo.png');
+    background-size: cover;
+    background-position: top;
+    grid-column: 1 / -1;
+    height: 90vh;
+    }
+
 }
 
 .wrap .jumbotron .jumbo-content{
-    position: relative;
+    position: absolute;
     align-items: center;
     top: 25vh;
+    left: 5%;
+    z-index: 1100;
 }
 
 .wrap .jumbotron .jumbo-content h1{
+    position: relative;
     font-size: 3.5em;
+    color: var(--alt-bg);
     width: 90%;
     line-height: 1em;
     text-transform: capitalize;
     padding: 0 20px;
+    margin: 0.4em 0;
+    animation: 6s ease-in textslide;
+    animation-iteration-count: infinite;
 }
 
-.wrap .jumbotron .jumbo-content h1:after{
-    content: "Talent";
-    font-style: italic;
-    text-transform: uppercase;
-    color: var(--main-bg);
+@supports(-webkit-text-stroke: 1px var(--alt-bg)) {
+    .wrap .jumbotron .jumbo-content span{
+        -webkit-text-stroke: 1px var(--alt-bg);
+    }
+  
 }
+
+  .wrap .jumbotron .jumbo-content span{
+        color:  #00aeff00;
+    }
+
+
+    span::before{
+    content: "Talent";
+    position: absolute;
+    display: inline;
+    top: 20;
+    left: 10;
+    width: 20%;
+    height: 40%;
+    color: #ffffff;
+    border-right: 1px solid var(--alt-bg);
+    overflow: hidden;
+    animation: header 10s linear infinite;
+}
+ 
+ @keyframes header{
+    0%, 10%, 100%{
+        width: 0%;
+    }
+
+    70%, 90%{
+        width: 60%;
+    }
+}
+
+
+
+/* @keyframes textslide{
+    25%{
+      color: black  
+    }
+
+    75%{
+      color: white;
+    }
+
+    100%{
+      color: black  
+    }
+
+} */
+
+
+
 .wrap .jumbotron .jumbo-content p{
     font-size: 0.8em;
     padding: 0px 20px;
     text-align: left;
+    color: white;
+    width: 77%;
+    margin: 0;
+
 }
 
 
@@ -137,6 +294,18 @@ menu .cta button h6, h5{
     font-size: 0.8em;
     color: azure;
 }
+
+.brightness{
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.836);
+    grid-column: 1 / -1;
+    z-index: 100;
+    position: absolute;
+    top: 3.5em;
+}
+
+
 
 /* .wrap .jumbotron .jumbo-content button:hover{
    
@@ -154,7 +323,7 @@ menu .cta button h6, h5{
     text-decoration: none;
 }
 .trusted img{
-    width: 70px;
+    width: 30%;
     filter: invert();
     padding: 1em 1em;
 }
@@ -164,7 +333,7 @@ menu .cta button h6, h5{
     padding: 1em;
     font-weight: bolder;
     color: var(--main-bg);
-    font-size: 0.9em;
+    font-size: 1em;
     text-transform: uppercase;
 }
 
@@ -173,7 +342,8 @@ menu .cta button h6, h5{
 .wrap .recruit{
     width: 80vw;
     position: relative;
-    margin-top: 3em;
+    margin: 0 auto;
+    top: 5em;
 }
 
 .wrap .recruit .intro{
@@ -222,6 +392,18 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
 .wrap .recruit .talent-cards .tal-card img, h3, p, .cta{
     position: relative;
     text-align: center;
+}
+
+
+.wrap .recruit .talent-cards .tal-card{
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: 1s all ease-in-out;
+}
+
+.wrap .recruit .talent-cards .one-appear{
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .wrap .recruit .talent-cards .tal-card .img{
@@ -283,7 +465,11 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
 
 
 .testimonial{
-    margin: 18em 0;
+    width: 80vw;
+    margin: 0 auto;
+    position: relative;
+    top: 16em;
+
 }
 
 .testimonial h3{
@@ -307,25 +493,33 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
 }
 
 .testimonial .test_cards{
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: inline-flex;
+    overflow-x: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    transform: scale(1.0);
 }
 
-.testimonial .test_cards .card:hover{
-    border: 1px solid var(--alt-bg);
+.testimonial .test_cards .active{
+    cursor: -webkit-grabbing;
+    transform: scale(1.1);
+    cursor: grabbing;
 }
+
+
 .testimonial .test_cards .card{
     box-shadow:   -2px -2px 8px rgb(255, 255, 255),
                     -2px -2px 12px rgba(255, 255, 255, 0.5),
                     -2px -2px 8px rgba(255, 255, 255, 0.1),
-                    2px 2px 8px rgba(0, 0, 0, 0.15);    height: 25rem;
-
+                    2px 2px 8px rgba(0, 0, 0, 0.15);  
     text-align: center;
     padding: 1em;
     height: 34em;
     transition: 1s;
     cursor: pointer;
+    min-width: 15%;
+    border: 1px solid var(--alt-bg);
+    margin: 0 1em;
 }
 
 /* .testimonial .test_cards .card h5, h6{
@@ -370,42 +564,54 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
     
 }
 
+.testimonial .test_cards{
+    overflow-y: hidden;
+}
+
+/* .card{
+    display: none;
+}
+
+.active{
+    display: block;
+} */
+
 
 .wrap footer{
     grid-column: 1 / -1;
     color: black;
     position: relative;
     place-content: center;
-    background: var(--alt-bg);
-    top: 4em;
-    
+    background: var(--main-bg);
+    top: 20em;  
 }
 
 footer .contain{
     display: grid;
     justify-content: space-between;
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     color: white;
+  
 }
 
-footer .contain *{
-  text-align: center;
-}
+
 
 
 footer .contain .talentpool p{
-    padding: 1em 0;
-    text-align: center;
+    padding: 2em 0;
+    text-align: left;
     color: aliceblue;
+    font-size: 0.8em;
+    float: right;
 }
+
 footer .contain .Visit p{
     color: white;
- text-align: left;
 }
 
 hr{
-    width: 80vw;
+    width: 90vw;
 }
  footer .contain ul{
     list-style-type: none;
@@ -416,85 +622,101 @@ hr{
 }
 
  footer .contain ul li a:hover{
-    color: rgb(112, 112, 255);
-}
-
-.wrap footer .contain .talentpool img{
-    filter: invert();
-    margin-top: 4em;
-}
-
-footer .contain h2{
     color: aqua;
-}
- footer .contain a{
-    text-decoration: none;
-    color: white;
+    font-size: 1.1em;
 }
 
-footer .contain .Explore{
-    display: flex;
-    justify-content: space-between;
-}
-
-footer .contain .get{
-    display: flex;
-    justify-content: space-between;
-}
-
-footer .contain .get h3{
-    padding: 0;
-    margin: 0;
-    color: aqua;
-}
-
-footer .contain .get p{
-    text-align: right;
-}
-footer .contain .get{
-    display: flex;
-}
-
-footer .contain .Explore ul li a{
-    float: right;
-    padding: 5px 0;
-}
-
-
-footer .contain .Visit{
-    display: flex;
-    justify-content: space-between;
-}
-
-footer .contain .Visit p{
-    text-align: right;
-}
-
-footer .contain .Visit h2{
-   margin: 0;
-   padding: 0;
-}
-
-footer .contain .offers{
-    margin: 3em 0;
-}
-
-footer .contain .Follow{
-    display: flex;
-    justify-content: space-between;
-}
-
- footer .contain .Legal{
-    display: flex;
-    justify-content: space-between;
-}
-
-footer .copyright p{
-    padding: 14px;
-    color: white;
-    position: relative;
-    z-index: 100;
+.tal-card, .btn{
     cursor: pointer;
 }
 
+.wrap footer .contain .talentpool{
+    position: relative;
+    top: 4em;
+}
+.wrap footer .contain .talentpool img{
+    filter: invert();
+    margin-top: 1em;
+    width: 6em;
+    float: left;
+}
+
+.offers{
+    font-size: 0.7em;
+    position: relative;
+    margin-top: 3em;
+    top: 1em;
+}
+
+.offers ul li{
+    position: relative;
+    right: 1.8em;
+}
+
+.links{
+    position: relative;
+    top: 3em;
+    padding: 1em 0;
+    text-align: center;
+}
+
+ footer .contain a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s ease-in-out;
+}
+
+
+footer .copyright p{
+    padding: 7px;
+    color: rgba(255, 255, 255, 0.26);
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+
+@media(min-width: 600px){
+    .trusted img{
+    width: 10%;
+    filter: invert();
+    padding: 1em 1em;
+}
+    .wrap footer .contain{
+        display: flex;
+    }
+
+    .wrap footer .talentpool{
+        width: 30%;
+    }
+
+
+    .wrap footer .contain .links{
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7em;
+        width: 60%;
+    }
+    
+    .wrap footer .contain .Explore{
+        text-align: center;
+    }
+
+    .wrap footer .contain .offers ul{
+    position: relative;
+    right: 17%;
+    text-align: center;
+    }
+
+    .wrap footer .contain .Legal ul{
+    position: relative;
+    right: 40%;
+    }
+
+    .wrap footer .contain .Follow ul{
+    position: relative;
+    right: 40%;
+    }
+}
 
