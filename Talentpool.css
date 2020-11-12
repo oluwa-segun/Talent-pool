@@ -5,7 +5,15 @@ html, body{
     font-family: Poppins;
     font-weight: 400;
     font-size: 1em;
+    overflow-x: hidden;
+}
 
+*{
+    min-width: 0;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 :root{
@@ -152,12 +160,12 @@ menu .cta button h6, h5{
     height: 90vh;
     animation: 10s ease-in slideshow;
     animation-iteration-count: infinite;
-    
+    width: 100%;
 }
 
 @keyframes slideshow{
     0%{
-    background: url('images/jumbo.png');
+    background: url('images/jumbo1.png');
     background-size: cover;
     background-position: top;
     grid-column: 1 / -1;
@@ -165,7 +173,7 @@ menu .cta button h6, h5{
     }
 
     25%{
-    background: url('images/jumbo1.jpeg');
+    background: url('images/jumbo1.png');
     background-size: cover;
     background-position: top;
     grid-column: 1 / -1;
@@ -173,7 +181,7 @@ menu .cta button h6, h5{
     }
 
     45%{
-    background: url('images/jumbo2.jpeg');
+    background: url('images/jumbo2.png');
     background-size: cover;
     background-position: top;
     grid-column: 1 / -1;
@@ -181,7 +189,7 @@ menu .cta button h6, h5{
     }
 
     65%{
-    background: url('images/jumbo3.jpeg');
+    background: url('images/jumbo3.png');
     background-size: cover;
     background-position: top;
     grid-column: 1 / -1;
@@ -189,7 +197,7 @@ menu .cta button h6, h5{
     }
 
     100%{
-    background: url('images/jumbo.png');
+    background: url('images/jumbo1.png');
     background-size: cover;
     background-position: top;
     grid-column: 1 / -1;
@@ -238,11 +246,11 @@ menu .cta button h6, h5{
     top: 20;
     left: 10;
     width: 20%;
-    height: 40%;
+    height: 50%;
     color: #ffffff;
     border-right: 1px solid var(--alt-bg);
     overflow: hidden;
-    animation: header 10s linear infinite;
+    animation: header 5s linear infinite;
 }
  
  @keyframes header{
@@ -251,7 +259,7 @@ menu .cta button h6, h5{
     }
 
     70%, 90%{
-        width: 60%;
+        width: 30%;
     }
 }
 
@@ -294,16 +302,16 @@ menu .cta button h6, h5{
     font-size: 0.8em;
     color: azure;
 }
-
+/* 
 .brightness{
     width: 100vw;
-    height: 100%;
+    height: 90%;
     background-color: rgba(0, 0, 0, 0.836);
     grid-column: 1 / -1;
     z-index: 100;
     position: absolute;
     top: 3.5em;
-}
+} */
 
 
 
@@ -407,8 +415,8 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
 }
 
 .wrap .recruit .talent-cards .tal-card .img{
-    width: 125px;
-    height: 125px;
+    width: 36%;
+    height: 36%;
     border-radius: 50%;
     position: relative;
     display: grid;
@@ -517,7 +525,7 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
     height: 34em;
     transition: 1s;
     cursor: pointer;
-    min-width: 15%;
+    min-width: 40%;
     border: 1px solid var(--alt-bg);
     margin: 0 1em;
 }
@@ -611,6 +619,7 @@ footer .contain .Visit p{
 }
 
 hr{
+    position: relative;
     width: 90vw;
 }
  footer .contain ul{
@@ -658,6 +667,7 @@ hr{
     top: 3em;
     padding: 1em 0;
     text-align: center;
+    margin: 5em;
 }
 
  footer .contain a{
@@ -669,11 +679,12 @@ hr{
 
 footer .copyright p{
     padding: 7px;
-    color: rgba(255, 255, 255, 0.26);
+    color: rgba(255, 255, 255, 0.404);
     position: relative;
     z-index: 100;
     cursor: pointer;
     font-size: 0.8em;
+    top: -4em;
 }
 
 

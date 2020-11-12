@@ -128,7 +128,7 @@ function ScrollOne(){
     let cards = document.querySelectorAll('.tal-card');
     cards.forEach(card =>{
         let cardPosition = card.getBoundingClientRect().top;
-        let screenPosition = window.innerHeight / 1.2;
+        let screenPosition = window.innerHeight;
         
         if (cardPosition < screenPosition) {
         card.classList.add('one-appear')
@@ -138,26 +138,6 @@ function ScrollOne(){
 }
 
 window.addEventListener('scroll', ScrollOne)
-
-// function ScrollOne(){
-//     let one = document.querySelectorAll('.one');
-
-//     let onePosition = one.getBoundingClientRect().top;
-//     let screenPosition = window.innerHeight / 1.2;
-
-//     if (onePosition < screenPosition){
-//         one.classList.add('one-appear')
-//     }
-
-//     console.log(one)
-// }
-
-
-
-// window.addEventListener('scroll', ScrollOne);
-
-
-
 
 
 
