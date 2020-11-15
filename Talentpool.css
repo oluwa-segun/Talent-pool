@@ -30,9 +30,6 @@ html, body{
     min-width: 0;
 }
 
-.wrap header nav ul{
-    display: none;
-}
 
 .wrap header nav{
     display: flex;
@@ -52,10 +49,7 @@ html, body{
     padding: 18px 0;
 }
 
- 
-.active{
-    z-index: 1000;
-}
+
 
 .slideInLeft{
     animation: animateInLeft;
@@ -104,6 +98,8 @@ html, body{
 .wrap header nav #menu{
     width: 20px;
 }
+
+
 
 menu{
     position: absolute;
@@ -500,18 +496,14 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
 }
 
 .testimonial .test_cards{
-    display: inline-flex;
+    display: flex;
     overflow-x: hidden;
     transition: all 0.2s;
     cursor: pointer;
     transform: scale(1.0);
+    overflow-x: scroll;
 }
 
-.testimonial .test_cards .active{
-    cursor: -webkit-grabbing;
-    transform: scale(1.1);
-    cursor: grabbing;
-}
 
 
 .testimonial .test_cards .card{
@@ -521,10 +513,10 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
                     2px 2px 8px rgba(0, 0, 0, 0.15);  
     text-align: center;
     padding: 1em;
-    height: 34em;
+    height: 100%;
     transition: 1s;
     cursor: pointer;
-    min-width: 35%;
+    min-width: 75%;
     border: 1px solid var(--alt-bg);
     margin: 0 1em;
 }
@@ -576,13 +568,13 @@ box-shadow:   -2px -2px 8px rgb(255, 255, 255),
     overflow-y: hidden;
 }
 
-/* .card{
-    display: none;
-}
 
-.active{
-    display: block;
-} */
+
+.test_cards.active{
+    cursor: grabbing;
+    transform: scale(1.1);
+    background-color: tomato;
+} 
 
 
 .wrap footer{
@@ -689,6 +681,10 @@ footer .copyright p{
 
 
 @media(min-width: 600px){
+
+    .wrap header nav ul{
+    display: block;
+    }
     .trusted img{
     width: 10%;
     filter: invert();
@@ -730,4 +726,68 @@ footer .copyright p{
     right: 40%;
     }
 }
+
+
+ .wrap header nav ul{
+        display: flex;
+        margin: 0;
+        justify-content: space-between;
+        width: 50%;
+        list-style: none;
+        display: none;
+    }
+
+        .wrap header nav ul li a{
+            text-decoration: none;
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 0.8em;
+        }
+
+        .wrap header nav ul li .hire{
+            background: var(--main-bg);
+            padding: 0.7em;
+            border-radius: 0.3em;
+            color: #ffffff;
+        }
+
+        .wrap header nav ul li .sign{
+            border: 1px solid var(--main-bg);
+            padding: 0.7em;
+            background: none;
+            border-radius: 0.3em;
+            color:var(--main-bg)
+        }
+
+    @media screen and (min-width: 500px){
+    #menu{
+    display: none; 
+    padding: 10px 30px ; 
+    }
+
+    .wrap header nav ul{
+    display: flex; 
+    font-size: 0.4em;
+    padding: 1em 5px;
+    width: 60%;
+    }
+}
+
+
+@media screen and (min-width: 700px){
+
+    .wrap header nav ul{
+    font-size: 0.7em;
+    margin: 0;
+    }
+}
+
+@media screen and (min-width: 800px){
+
+    .wrap header nav ul{
+    font-size: 0.9em;
+    margin: 0;
+    }
+}
+
 
